@@ -1,0 +1,16 @@
+<html>
+<head>
+<title>Mike F. Week 02</title>
+</head>
+<body>
+<h1>Version 1: Pseudocode</h1>
+//Create keypad for input from user
+Input buttons
+//Convert the input from the button (decimal) to binary
+Decimal to Binary
+//Convert the binary code to segments to display on the 7-segment display
+Binary to Segments
+//Determine whihc segment on the 7-segment display should be lit up
+Light up segment to display input
+</body>
+</html>
