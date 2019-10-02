@@ -15,8 +15,8 @@
         function display(number) {
             //display the number in a <p> element
             document.getElementById("decimal_input").innerHTML=number
-            var bcd = dec2bin(number)
-            document.getElementById("binary_output").innerHTML=bcd
+            var bin = dec2bin(number)
+            document.getElementById("binary_output").innerHTML=bin
             
             //send binary number to SSD conversion function
             document.getElementById("binary2ssd_input").innerHTML=bin
