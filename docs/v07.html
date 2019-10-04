@@ -41,12 +41,12 @@
             //compute value of logical expression
             //expression for A was ~wxz + w~x~y + ~x~y~z +wy
             var a = !w&x&z||w&!x&!y||!x&!y&!z||!w&y
-            var b = !w&x&z||w&!x&!y||!x&!y&!z||!w&y
-            var c = !w&x&z||w&!x&!y||!x&!y&!z||!w&y
-            var d = !w&x&z||w&!x&!y||!x&!y&!z||!w&y
-            var e = !w&x&z||w&!x&!y||!x&!y&!z||!w&y
-            var f = !w&x&z||w&!x&!y||!x&!y&!z||!w&y
-            var g = !w&x&z||w&!x&!y||!x&!y&!z||!w&y
+             var b = !w&&!x&&y || !w&&!x&&!z || !w&&y&&z || !x&&!y || !w&&!y&&!z
+               var c = !w&&z || !x&&!y || !w&&x
+               var d = !w&&x&&!y&&z || !w&&!x&&!z || w&&!x&&!y ||!w&&y&&!z || !w&&!x&&y
+               var e = !w&&y&&!z ||!x&&!y&&!z
+               var f = !w&&!y&&!z || !w&&x&&!z || w&&!x&&!y || !w&&x&&!y
+               var g = !w&&!x&&y || !w&&x&&!y || !w&&x&&!z || w&&!x&&!y
             //assemble and return output
             // build up output string element
             var output = ''
