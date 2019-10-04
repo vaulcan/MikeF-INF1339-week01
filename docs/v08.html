@@ -22,16 +22,19 @@
    </style>
     <script>
         function display(number) {
-            //for now just display the number in a <p> element
+            //display the number in a <p> element
             document.getElementById("decimal_input").innerHTML=number
             var bin = dec2bin(number)
+            //send binary number to SSD conversion function
             document.getElementById("binary_output").innerHTML=bin
             var ssd = bin2ssd(bin)
+            //send the SSD signal(s) to the illumate 7 segment disply function
             illuminate(ssd)
         }
         function bin2ssd(binary) {
-              //convert the four bit input string into w,x,y,z variables
-               var w = false //set them all to false at first then change if input is '1'
+               //convert four digit input string into w,x,y,z variables
+               //set all variables to false.
+               var w = false 
                var x = false
                var y = false 
                var z = false
@@ -39,10 +42,9 @@
                if (binary[1] == '1') {x = true}
                if (binary[2] == '1') {y = true}
                if (binary[3] == '1') {z = true}
-              //"compute" the value of logical expression for each segment
-              //our expression for A was ~wxz + w~x~y + ~x~y~z + ~wy
+               //compute value of logical expression
+               //expression for A was ~wxz + w~x~y + ~x~y~z +wy
                var a = !w&x&z || w&!x&!y || !x&!y&!z || !w&y
-               // the remainder of the expressions are left as an exercise
                var b = !w&&!x&&y || !w&&!x&&!z || !w&&y&&z || !x&&!y || !w&&!y&&!z
                var c = !w&&z || !x&&!y || !w&&x
                var d = !w&&x&&!y&&z || !w&&!x&&!z || w&&!x&&!y ||!w&&y&&!z || !w&&!x&&y
@@ -50,8 +52,8 @@
                var f = !w&&!y&&!z || !w&&x&&!z || w&&!x&&!y || !w&&x&&!y
                var g = !w&&!x&&y || !w&&x&&!y || !w&&x&&!z || w&&!x&&!y
                    
-              //assemble and return the output
-              //we will build up the output string element by element
+               //assemble and return output
+               // build up output string element
                var output = ''
                if (a) {output = output + '1'} else {output = output + '0'}
                if (b) {output = output + '1'} else {output = output + '0'}
@@ -60,7 +62,7 @@
                if (e) {output = output + '1'} else {output = output + '0'}
                if (f) {output = output + '1'} else {output = output + '0'}
                if (g) {output = output + '1'} else {output = output + '0'}
-               return (output) //initial default just illuminates segment A
+               return (output) // initial default illuminates segmet A
               }
         function illuminate(signals) {
             document.getElementById("segments").innerHTML = signals
@@ -101,9 +103,8 @@
                  document.getElementById("segmentG").setAttribute("class", "black")}
         }
         function dec2bin (decimal) {
-            //first refinement : lazy lazy way of finding binary
-            //version of decimal input - we just look it up in a
-            //list
+            //finding binary the easy way
+            //look up the in list for the decimal input
             binary = ["0000","0001","0010","0011",
                       "0100","0101","0110","0111",
                       "1000","1001"]
